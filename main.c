@@ -1,23 +1,19 @@
 #include <stdio.h>
-#include <stdint.h>
 #include <string.h> 
+#include "temp_functions.h"
+
 #define SIZE 30
 
-typedef struct sensor
-{
-    uint8_t day;
-    uint8_t month;
-    uint16_t year;
-    int8_t t;
-} sensor;
-
-void AddRecord (sensor* info, int number, uint8_t day, uint8_t month, uint16_t year, uint8_t t)
-{
-
-}
 
 int main(int argc, char const *argv[])
 {
-    sensor info[SIZE];
+    struct sensor info[SIZE];
+    int number = AddInfo(info);
+    print(info, number);
+    sortByT(info, number);
+    print(info, number);
+    SortByDate(info, number);
+    print(info, number);
+
     return 0;
 }
